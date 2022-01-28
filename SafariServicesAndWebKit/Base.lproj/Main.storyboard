@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Safari View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="SafariViewController" customModule="SafariAndWebViewTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K8s-4f-O6B">
+                                <rect key="frame" x="96" y="402" width="222" height="92"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fd8-DO-VJ1">
+                                        <rect key="frame" x="0.0" y="0.0" width="222" height="42"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <state key="normal" title="Show me Google!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showMeGoogleButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Scy-iR-l4T"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0v-IG-uY7">
+                                        <rect key="frame" x="0.0" y="50" width="222" height="42"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <state key="normal" title="Show me WebView!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showMeGoogleButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w3a-dA-S0e"/>
+                                            <action selector="showMeWebViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UBf-Ac-4MV"/>
+                                            <segue destination="FeV-6Q-T54" kind="presentation" id="CaK-q2-xRw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="K8s-4f-O6B" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lbD-U9-3Zj"/>
+                            <constraint firstItem="K8s-4f-O6B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xXp-cD-Cuy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="showMeGoogleOutlet" destination="fd8-DO-VJ1" id="Mo5-aU-gGM"/>
+                        <outlet property="showMeWebViewOutlet" destination="c0v-IG-uY7" id="Gky-48-pCR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="94"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="Y9z-Ab-Ls5">
+            <objects>
+                <viewController id="FeV-6Q-T54" customClass="WebViewController" customModule="SafariAndWebViewTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TQW-ec-7nF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7U-Oq-ixH">
+                                <rect key="frame" x="20" y="50" width="374" height="758"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayL-Fj-wzI">
+                                <rect key="frame" x="20" y="6" width="52" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="dismissWebView:" destination="FeV-6Q-T54" eventType="touchUpInside" id="IKN-4o-0VI"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yNS-eo-8Pf">
+                                <rect key="frame" x="350" y="13" width="44" height="22"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5R-Of-hJ2">
+                                        <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="22" id="357-xS-4iG"/>
+                                            <constraint firstAttribute="height" constant="22" id="Cz1-bW-LEZ"/>
+                                        </constraints>
+                                        <state key="normal" image="chevron.backward" catalog="system"/>
+                                        <connections>
+                                            <action selector="goBackPressed:" destination="FeV-6Q-T54" eventType="touchUpInside" id="kjQ-MJ-Eej"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jy5-hL-fkz">
+                                        <rect key="frame" x="22" y="0.0" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="22" id="hWu-Mm-S9e"/>
+                                            <constraint firstAttribute="height" constant="22" id="kPg-7u-vRN"/>
+                                        </constraints>
+                                        <state key="normal" image="chevron.forward" catalog="system"/>
+                                        <connections>
+                                            <action selector="goForwardPressed:" destination="FeV-6Q-T54" eventType="touchUpInside" id="4bf-Ql-90x"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="nuM-hh-zhq"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ajj-ib-k4B"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yNS-eo-8Pf" firstAttribute="top" secondItem="ajj-ib-k4B" secondAttribute="top" constant="13" id="8Hv-GG-UHn"/>
+                            <constraint firstItem="ajj-ib-k4B" firstAttribute="trailing" secondItem="yNS-eo-8Pf" secondAttribute="trailing" constant="20" id="IPP-c1-GYQ"/>
+                            <constraint firstItem="v7U-Oq-ixH" firstAttribute="top" secondItem="yNS-eo-8Pf" secondAttribute="bottom" constant="15" id="T7I-E2-ElP"/>
+                            <constraint firstItem="ayL-Fj-wzI" firstAttribute="leading" secondItem="v7U-Oq-ixH" secondAttribute="leading" id="VKx-f5-tBp"/>
+                            <constraint firstItem="yNS-eo-8Pf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ayL-Fj-wzI" secondAttribute="trailing" constant="8" symbolic="YES" id="VpI-Zb-PnV"/>
+                            <constraint firstItem="ajj-ib-k4B" firstAttribute="trailing" secondItem="v7U-Oq-ixH" secondAttribute="trailing" constant="20" id="Xfo-Vh-bXS"/>
+                            <constraint firstItem="v7U-Oq-ixH" firstAttribute="leading" secondItem="ajj-ib-k4B" secondAttribute="leading" constant="20" id="huJ-WS-duK"/>
+                            <constraint firstItem="v7U-Oq-ixH" firstAttribute="bottom" secondItem="ajj-ib-k4B" secondAttribute="bottom" id="oTt-ea-4v1"/>
+                            <constraint firstItem="v7U-Oq-ixH" firstAttribute="top" secondItem="ajj-ib-k4B" secondAttribute="top" constant="50" id="sMw-eS-STg"/>
+                            <constraint firstItem="v7U-Oq-ixH" firstAttribute="top" secondItem="ayL-Fj-wzI" secondAttribute="bottom" constant="8" symbolic="YES" id="tw6-LL-Iu3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="v7U-Oq-ixH" id="Zxl-2Q-8HR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eAF-Bq-oNc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785.50724637681162" y="93.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="chevron.forward" catalog="system" width="96" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
